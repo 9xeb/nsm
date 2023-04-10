@@ -25,3 +25,8 @@ services:
       - ./network/suricata/suricata.yaml:/etc/suricata/suricata.yaml.template:ro
       - suricata-logs:/var/log/suricata
     network_mode: "host"
+
+volumes:
+  zeek-logs:
+  zeek-spool:
+  suricata-logs:
