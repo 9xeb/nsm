@@ -1,6 +1,9 @@
 # nsm
 A network security monitor powered by Zeek and Suricata
 
+## Usage
+Make sure required docker volumes are available beforehand, or define them locally by editing the docker-compose.yml file.
+
 ## TODO
 - logrotate suricata logs
 - health check to recover from crashes
