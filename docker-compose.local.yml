@@ -3,7 +3,7 @@ version: '2.2'
 # Security center
 services:
   zeek:
-    build: ./network/zeek/
+    build: ./zeek/
     container_name: zeek
     restart: always
     environment:
@@ -16,7 +16,7 @@ services:
     network_mode: "host"
 
   suricata:
-    build: ./network/suricata/
+    build: ./suricata/
     container_name: suricata
     restart: always
     environment:
