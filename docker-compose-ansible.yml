@@ -3,25 +3,30 @@ version: '2.2'
 # Security center
 services:
   zeek:
-    build: ./nsm/zeek/
+    build: ./zeek/
     container_name: zeek
     restart: always
     environment:
       ZEEK_INTERFACE: ${ZEEK_INTERFACE}
       ZEEK_PROCS: ${ZEEK_PROCS}
     volumes:
-      - ./nsm/zeek/node.cfg:/usr/local/zeek/etc/node.cfg.template:ro
+      - ./zeek/node.cfg:/usr/local/zeek/etc/node.cfg.template:ro
       - zeek-logs:/usr/local/zeek/logs
       - zeek-spool:/usr/local/zeek/spool/logger-1
     network_mode: "host"
 
   suricata:
-    build: ./nsm/suricata/
+    build: ./suricata/
     container_name: suricata
     restart: always
     environment:
       SURICATA_INTERFACE: ${SURICATA_INTERFACE}
     volumes:
-      - ./nsm/suricata/suricata.yaml:/etc/suricata/suricata.yaml.template:ro
+      - ./suricata/suricata.yaml:/etc/suricata/suricata.yaml.template:ro
       - suricata-logs:/var/log/suricata
     network_mode: "host"
+
+volumes:
+  zeek-logs:
+  zeek-spool:
+  suricata-logs:
